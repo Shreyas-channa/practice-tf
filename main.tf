@@ -1,15 +1,10 @@
 provider "aws" {
-    region = "us-east-1"
+    region = "us-east-1"  # Set your desired AWS region
 }
 
-resource "aws-instance " "my-instance" {
-    ami = "ami-07caf09b362be10b8"
+resource "aws_instance" "example" {
+    ami           = "ami-0c55b159cbfafe1f0"  # Specify an appropriate AMI ID
     instance_type = "t2.micro"
+    subnet_id = "subnet-08c19746214c38cf5"
     key_name = "ak-virginia"
-    tags = {
-        env = "dev"
-        name = "instance-1"
-    }
-    vpc_security_group_ids = ["sg-05ae5ce65f18d0610", "sg-023e1d359bd5464cd"]
-  
 }
